@@ -1,0 +1,22 @@
+# example of text substitution
+#regexp=\bda?emon
+#replace=angel
+#colours=red
+#======
+# example of text substitution
+#regexp=(\d\d):(\d\d):(\d\d)
+#replace=\1h\2m\3s
+#======
+
+regexp=.*WARN
+colours=bold yellow
+count=stop
+======
+regexp=.*INFO
+colours=blue
+count=more
+======
+regexp=.*ERROR
+colours=bold red
+count=more
+======
