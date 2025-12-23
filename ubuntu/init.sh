@@ -30,6 +30,7 @@ packages=(
   "gtar"
   "gzip"
   "htop"
+  "cmatrix"
 )
 
 for elem in ${packages[@]}; do
@@ -52,7 +53,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 #npm
 # packages
 #├── @angular/language-server@21.0.5
-#├── npm@11.6.2
+##├── npm@11.6.2
 # check npm list -g --depth=0 - вот тут проверить, что все пакеты корректно встали в global
 
 echo "=== END of instllation ==="
