@@ -39,11 +39,14 @@ done
 
 echo '=== install fzf ==='
 
+# TODO copy bashrc before
+
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # TODO install kitty
 # TODO install nerd fonts
+# TODO надо добавить еще симлинки для файлов конфигурации
 # set nerd fonts for kitty
 #
 # rg for debian
