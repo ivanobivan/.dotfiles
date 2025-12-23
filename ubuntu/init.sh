@@ -41,6 +41,10 @@ echo '=== install fzf ==='
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# TODO install kitty
+# TODO install nerd fonts
+# set nerd fonts for kitty
+#
 # rg for debian
 #$ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep_14.1.1-1_amd64.deb
 #$ sudo dpkg -i ripgrep_14.1.1-1_amd64.deb
@@ -48,8 +52,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 #npm
 # packages
 #├── @angular/language-server@21.0.5
-├── npm@11.6.2
-└── tree-sitter-cli@0.26.3
+#├── npm@11.6.2
 # check npm list -g --depth=0 - вот тут проверить, что все пакеты корректно встали в global
 
 echo "=== END of instllation ==="
