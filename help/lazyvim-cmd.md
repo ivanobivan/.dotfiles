@@ -29,7 +29,7 @@
 
 - <leader>cr - mass rename [like ctrl+f6]
 - <leader>xx - show errors
-- <leader>ss - show class body [like f12]
+- <leader>ss - show class structure [like f12]
 - <leader>sg, <leader>sG, <leader>/ - mass search [line ctrl+shift+f]
 - <leader>, <leader>fb - show last files [line ctrl+e]
 - <leader>sk - show keymaps
