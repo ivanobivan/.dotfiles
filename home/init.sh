@@ -12,7 +12,7 @@ install() {
 }
 
 echo "====================================="
-echo "=== Hello obivan,  install ubuntu ==="
+echo "=== Hello obivan,  install system ==="
 echo "====================================="
 
 sudo apt update
@@ -24,13 +24,11 @@ packages=(
   "curl"
   "wget"
   "xclip"
-  "unzip"
   "tar"
-  "gtar"
-  "gzip"
   "htop"
   "cmatrix"
   "tree"
+  "translate-shell"
 )
 
 for elem in ${packages[@]}; do
