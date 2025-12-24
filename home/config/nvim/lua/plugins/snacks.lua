@@ -17,15 +17,14 @@ return {
 ]],
                 },
             },
-            explorer = {
-                replace_netrw = true,
-                trash = true,
-            },
             picker = {
-                ignored = true,
-                hidden = true,
+                ignored = false,
+                hidden = false,
                 sources = {
-                    explorer = {},
+                    explorer = {
+                        hidden = true,
+                        ignored = true,
+                    },
                 },
             },
             notifier = {
