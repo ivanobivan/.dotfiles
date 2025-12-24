@@ -1,43 +1,60 @@
-#Lazyvim helpfull commands <like <WebStorm>>
+# LazyVim Helpful Commands (like WebStorm)
 
-##Navigation
+## Navigation Buffer
 
-- ]b, L - next buffer
-- [b, H - previous buffer
-- <leader>, , <leader>fb - show last files <line ctrl+e>
-- <ctrl>o - navigate back
-- <ctrl>i - navigate forward
-- ]d - previous error
-- [d - next error
+`]b`, `L` - next buffer  
+`[b`, `H` - previous buffer  
+`<leader>, , <leader>fb` - show last files (Ctrl+e)  
+`<Ctrl>o` - navigate back  
+`<Ctrl>i` - navigate forward  
+`]d` - next error  
+`[d` - previous error
 
-##Window splitting
+## Navigation Code
 
-- <leader>wv - split horizontally <line ctrl+alt+9>
-- <leader>ww - switch split <like ALT+/>
-- <ctrl>l - move left window
-- <ctrl>h - move right window
+`gr` - find where variable is used  
+`gd` - go to variable definition
 
-##Code manage
+## Text Editing
 
-- <alt>j - move string down <like ctrl+alt+down>
-- <alt>k - move string up <like ctrl+alt+up>
-- <leader>ql - restore last session <ws default>
-- <leader>sr - global replace <like ctrl+shift+r>
-- gcc/gc - comment line (multiline)
+`i` - insert before cursor  
+`I` - insert at beginning of line  
+`a` - insert after cursor  
+`A` - insert at end of line  
+`s`, `S`, `c` - change/replace  
+`r`, `R` - replace one or more symbols  
+`x` - remove one symbol  
+`yyp`, `yyP` - copy line and paste above/below
 
-##Git
+## Window Splitting
 
-- <leader>gg - open lazygit
+`<leader>wv` - split horizontally (Ctrl+Alt+9)  
+`<leader>ww` - switch split (Alt+/)  
+`<Ctrl>l` - move left window  
+`<Ctrl>h` - move right window
 
-##Other
+## Code Management
 
-- <leader>cr - mass rename <like ctrl+f6>
-- <leader>xx - show errors
-- <leader>ss - show class structure <like f12>
-- <leader>sg, <leader>sG, <leader>/ - mass search <line ctrl+shift+f>
-- <leader>, <leader>fb - show last files <line ctrl+e>
-- <leader>sk - show keymaps
+`<Alt>j` - move line down (Ctrl+Alt+Down)  
+`<Alt>k` - move line up (Ctrl+Alt+Up)  
+`<leader>ql` - restore last session (WS default)  
+`<leader>sr` - global replace (Ctrl+Shift+R)  
+`gcc` / `gc` - comment line (multiline)
 
-##Tips
+## Git
 
-- чтобы работали переходы по методам и полям, нужно перейти в файл с нужным расширением
+`<leader>gg` - open LazyGit
+
+## Other
+
+`<leader>cr` - mass rename (Ctrl+F6)  
+`<leader>xx` - show errors  
+`<leader>ss` - show class structure (F12)  
+`<leader>sg`, `<leader>sG`, `<leader>/` - mass search (Ctrl+Shift+F)  
+`<leader>, <leader>fb` - show last files (Ctrl+e)  
+`<leader>sk` - show keymaps  
+`<leader>sh` - show help
+
+## Tips
+
+Чтобы работали переходы по методам и полям, нужно открыть файл с соответствующим расширением.
