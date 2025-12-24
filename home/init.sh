@@ -40,15 +40,14 @@ done
 echo '=== install fzf ==='
 
 # TODO copy bashrc before
+# TODO install kitty
+# TODO install nerd fonts
+# TODO set nerd fonts for kitty
+# TODO надо добавить еще симлинки для файлов конфигурации
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# TODO install kitty
-# TODO install nerd fonts
-# TODO надо добавить еще симлинки для файлов конфигурации
-# set nerd fonts for kitty
-#
 # rg for debian
 #$ curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep_14.1.1-1_amd64.deb
 #$ sudo dpkg -i ripgrep_14.1.1-1_amd64.deb
