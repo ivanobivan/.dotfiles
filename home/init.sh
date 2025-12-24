@@ -23,7 +23,6 @@ echo '=== start from required packages ==='
 packages=(
   "curl"
   "wget"
-  "git"
   "xclip"
   "unzip"
   "tar"
@@ -31,6 +30,7 @@ packages=(
   "gzip"
   "htop"
   "cmatrix"
+  "tree"
 )
 
 for elem in ${packages[@]}; do
