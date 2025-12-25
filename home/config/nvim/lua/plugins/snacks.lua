@@ -24,6 +24,14 @@ return {
                     explorer = {
                         hidden = true,
                         ignored = true,
+                        win = {
+                            list = {
+                                keys = {
+                                    ["<Right>"] = "confirm",
+                                    ["<Left>"] = "explorer_close",
+                                },
+                            },
+                        },
                     },
                 },
             },
