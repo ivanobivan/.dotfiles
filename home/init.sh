@@ -15,12 +15,10 @@ echo "====================================="
 echo "=== Hello obivan,  install system ==="
 echo "====================================="
 
-sudo apt update
-sudo apt upgrade
-
 echo '=== start from required packages ==='
 
 packages=(
+  "vim"
   "curl"
   "wget"
   "xclip"
