@@ -1,14 +1,45 @@
 #!/bin/bash
 
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m'
+
 install() {
-    local cmd="$1"
+    local pkg="$1"
 
     if dpkg -s "$pkg" >/dev/null 2>&1; then
-        echo "Package $cmd already installed"
+        printf "${GREEN}✔${NC} %s already installed\n" "$pkg"
     else
-        echo "Install $cmd pakage"
-        sudo apt install -y "$cmd"
+        printf "${BLUE}➜${NC} Installing %s\n" "$pkg"
+        sudo apt install -y "$pkg"
     fi
+}
+
+create_symlinks() {
+    local links=(
+        "$HOME/workspace/dotfiles/home/config/kitty:$HOME/.config/kitty"
+        "$HOME/workspace/dotfiles/home/config/lazygit:$HOME/.config/lazygit"
+        "$HOME/workspace/dotfiles/home/config/nvim:$HOME/.config/nvim"
+        "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
+        "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
+    )
+
+    for pair in "${links[@]}"; do
+        local SRC="${pair%%:*}"
+        local DST="${pair##*:}"
+
+        # Remove existing file, dir, or symlink
+        if [ -e "$DST" ] || [ -L "$DST" ]; then
+            rm -rf "$DST"
+            printf "${RED}!${NC} Replaced existing: %s\n" "$DST"
+        fi
+
+        # Create symlink
+        ln -sf "$SRC" "$DST"
+        printf "${BLUE}➜${NC} Symlink created: %s → %s\n" "$DST" "$SRC"
+    done
+
 }
 
 echo "====================================="
@@ -32,8 +63,9 @@ cd ~/temp
 
 # Google Chrome
 if command -v google-chrome >/dev/null 2>&1 || command -v google-chrome-stable >/dev/null 2>&1; then
-    echo "Google Chrome is already installed."
+    printf "${GREEN}✔${NC} Google Chrome already installed\n"
 else
+    printf "${BLUE}➜${NC} Installing Google Chrome\n"
     wget -O google-chrome.deb \
         https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo apt install -y ./google-chrome.deb
@@ -41,9 +73,10 @@ else
 fi
 
 # Telegram
-if command -v telegram-desktop >/dev/null 2>&1; then
-    echo "Telegram Desktop already installed."
+if [ -d /opt/Telegram ]; then
+    printf "${GREEN}✔${NC} Telegram already installed\n"
 else
+    printf "${BLUE}➜${NC} Installing Telegram\n"
     wget -O tg.tar https://telegram.org/dl/desktop/linux
     tar -xvf tg.tar
     sudo mv Telegram /opt/
@@ -51,57 +84,82 @@ else
 fi
 
 # Neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo rm -rf /opt/nvim-linux-x86_64
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-rm nvim-linux-x86_64.tar.gz
+if [ -d /opt/nvim-linux-x86_64 ]; then
+    printf "${GREEN}✔${NC} Neovim already installed\n"
+else
+    printf "${BLUE}➜${NC} Installing Neovim\n"
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+    rm nvim-linux-x86_64.tar.gz
+fi
 
-# Nerd Fonts
-mkdir -p ~/.fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
-unzip JetBrainsMono.zip -d ~/.fonts
-fc-cache -f -v
-rm JetBrainsMono.zip
+# Nerd Fonts (JetBrainsMono)
+if ls ~/.fonts/JetBrainsMono*NerdFont* >/dev/null 2>&1; then
+    printf "${GREEN}✔${NC} JetBrainsMono Nerd Font already installed\n"
+else
+    printf "${BLUE}➜${NC} Installing JetBrainsMono Nerd Font\n"
+    mkdir -p ~/.fonts
+    wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+    unzip -q JetBrainsMono.zip -d ~/.fonts
+    fc-cache -f -v
+    rm JetBrainsMono.zip
+fi
 
 # Lazygit
-LAZYGIT_VERSION=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest |
-    grep -Po '"tag_name": *"v\K[^"]*')
-curl -Lo lazygit.tar.gz \
-    "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
-rm lazygit lazygit.tar.gz
+if [ -f ~/.config/nvim/lua/config/lazy.lua ] ||
+    [ -d ~/.config/nvim/lua/lazyvim ]; then
+    printf "${GREEN}✔${NC} LazyVim already installed\n"
+else
+    printf "${BLUE}➜${NC} Installing LazyVim\n"
+    LAZYGIT_VERSION=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest |
+        grep -Po '"tag_name": *"v\K[^"]*')
+    curl -Lo lazygit.tar.gz \
+        "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf lazygit.tar.gz lazygit
+    sudo install lazygit -D -t /usr/local/bin/
+    rm lazygit lazygit.tar.gz
+fi
 
 # NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-source ~/.bashrc
-
-export NVM_DIR="$HOME/.nvm"
-source "$NVM_DIR/nvm.sh"
-nvm install --lts
-npm install -g tree-sitter-cli
+if [ -d "$HOME/.nvm" ]; then
+    printf "${GREEN}✔${NC} NVM already installed\n"
+else
+    printf "${BLUE}➜${NC} Installing NVM\n"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+    nvm install --lts
+    npm install -g tree-sitter-cli
+fi
 
 # fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+if [ -d "$HOME/.fzf" ]; then
+    printf "${GREEN}✔${NC} fzf already installed\n"
+else
+    printf "${BLUE}➜${NC} Installing fzf\n"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
 
 # Kitty
-mkdir -p ~./local/bin
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
-cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
-cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
-sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
-sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
-echo 'kitty.desktop' >~/.config/xdg-terminals.list
+if [ -d "$HOME/.local/kitty.app" ]; then
+    printf "${GREEN}✔${NC} Kitty already installed\n"
+else
+    printf "${BLUE}➜${NC} Installing Kitty\n"
+    mkdir -p ~./local/bin
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
+    cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
+    cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
+    sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
+    sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
+    echo 'kitty.desktop' >~/.config/xdg-terminals.list
+fi
 
 sudo apt --fix-broken install
 
-#symlinks
-ln -sf ~/workspace/dotfiles/home/config/kitty ~/.config/kitty
-ln -sf ~/workspace/dotfiles/home/config/lazygit ~/.config/lazygit
-ln -sf ~/workspace/dotfiles/home/config/nvim ~/.config/nvim
-ln -sf ~/workspace/dotfiles/home/.bashrc ~/.bashrc
-ln -sf ~/workspace/dotfiles/home/.inputrc ~/.inputrc
+create_symlinks
 
-echo "=== END of instllation, now restart terminal ==="
+echo "====================================="
+echo "===     END OF INSTALLATION       ==="
+echo "====================================="
