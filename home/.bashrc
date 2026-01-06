@@ -126,7 +126,8 @@ export NVM_DIR="$HOME/.nvm"
 alias "."="cd .."
 alias "b"="cd -"
 alias "icat"="kitten icat"
-alias "ts"="trans -b -s ru -t en"
+alias "ts"="trans -s ru -t en"
 alias "copy"="xclip -selection clipboard"
+alias "sleepi"="systemctl suspend -i"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
