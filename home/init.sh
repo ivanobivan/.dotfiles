@@ -23,6 +23,7 @@ create_symlinks() {
         "$HOME/workspace/dotfiles/home/config/nvim:$HOME/.config/nvim"
         "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
         "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
+        "$HOME/workspace/dotfiles/home/.xinitrc:$HOME/.xinitrc"
     )
 
     for pair in "${links[@]}"; do
