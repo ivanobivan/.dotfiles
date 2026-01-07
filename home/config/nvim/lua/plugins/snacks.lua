@@ -5,6 +5,9 @@ return {
             notifier = {
                 timeout = 5000,
             },
+            image = {
+                enabled = true,
+            },
         },
         keys = {
             {
