@@ -1,14 +1,15 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
-setxkbmap -option caps:escape
-
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
 *) return ;;
 esac
+
+# keymaps
+setxkbmap -option caps:escape
+setxkbmap -layout us,ru -option grp:ctrl_space_toggle
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -80,7 +81,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
+    alias grep='grep -i --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
@@ -117,19 +118,22 @@ if ! shopt -oq posix; then
     fi
 fi
 
-#pathes
+#PATHes
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:~/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-#user aliases
+#VARS
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+#ALIASES
 alias "."="cd .."
-alias "b"="cd -"
 alias "icat"="kitten icat"
 alias "ts"="trans -s ru -t en"
 alias "copy"="xclip -selection clipboard"
-alias "sleepi"="systemctl suspend -i"
+alias "sleeps"="systemctl suspend -i"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
