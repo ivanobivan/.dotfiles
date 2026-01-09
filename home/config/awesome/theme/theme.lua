@@ -45,6 +45,8 @@ theme.layout_tileleft = themes_path .. "/icons/tileleft.png"
 theme.layout_tile = themes_path .. "/icons/tile.png"
 theme.layout_tiletop = themes_path .. "/icons/tiletop.png"
 
+theme.widget_vol = themes_path .. "/icons/vol.png"
+
 theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
 
 -- Define the icon theme for application icons. If not set then the icons

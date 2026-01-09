@@ -126,8 +126,9 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = myma
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
-local keyboardlayout = awful.widget.keyboardlayout:new()
+local keyboardWidget = awful.widget.keyboardlayout:new()
 
+local volicon = wibox.widget.imagebox(beautiful.widget_vol)
 local clock = awful.widget.watch("date +'%d.%m %H:%M'", 60, function(widget, stdout)
 	widget:set_markup(" " .. string.format("<span font='%s'>%s</span>", beautiful.font, stdout))
 end)
@@ -278,10 +279,15 @@ awful.screen.connect_for_each_screen(function(s)
 			layout = wibox.layout.fixed.horizontal,
 			{
 				wibox.widget.systray(),
-				right = 4,
+				right = 2,
 				widget = wibox.container.margin,
 			},
-			keyboardlayout,
+			{
+				keyboardWidget,
+				right = 2,
+				widget = wibox.container.margin,
+			},
+			volicon,
 			clock,
 			s.mylayoutbox,
 		},
