@@ -94,18 +94,21 @@ alias l='ls -la'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+#ALIASES
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+#FUNCTIONS
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+#PROFILE
 if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
 fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -127,22 +130,5 @@ export NVM_DIR="$HOME/.nvm"
 #VARS
 export EDITOR="nvim"
 export VISUAL="nvim"
-
-#ALIASES
-alias ".."="cd .."
-alias "..."="cd ../.."
-alias "icat"="kitten icat"
-alias "ts"="trans -s ru -t en"
-alias "copy"="xclip -selection clipboard"
-alias "sleeps"="systemctl suspend -i"
-
-#FUNCTIONS
-qq() {
-    if [ -z "$1" ]; then
-        ls ~/workspace/dotfiles/help/*.md 2>/dev/null | xargs -n1 basename -s .md
-        return 1
-    fi
-    cat ~/workspace/dotfiles/help/"$1".md
-}
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
