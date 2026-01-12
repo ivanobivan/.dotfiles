@@ -139,7 +139,7 @@ alias "sleeps"="systemctl suspend -i"
 #FUNCTIONS
 qq() {
     if [ -z "$1" ]; then
-        echo "qq commits | fzf | kitty | lazyvim | term"
+        ls ~/workspace/dotfiles/help/*.md 2>/dev/null | xargs -n1 basename -s .md
         return 1
     fi
     cat ~/workspace/dotfiles/help/"$1".md
