@@ -1,4 +1,3 @@
-
 qq() {
     if [ -z "$1" ]; then
         ls ~/workspace/dotfiles/help/*.md 2>/dev/null | xargs -n1 basename -s .md

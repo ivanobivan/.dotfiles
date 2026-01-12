@@ -22,8 +22,8 @@ create_symlinks() {
         "$HOME/workspace/dotfiles/home/config/lazygit:$HOME/.config/lazygit"
         "$HOME/workspace/dotfiles/home/config/nvim:$HOME/.config/nvim"
         "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
-        "$HOME/workspace/dotfiles/home/.bashrc_functions:$HOME/.bashrc_functions"
-        "$HOME/workspace/dotfiles/home/.bashrc_aliases:$HOME/.bashrc_aliases"
+        "$HOME/workspace/dotfiles/home/BFunctions.bash:$HOME/BFunctions.bash"
+        "$HOME/workspace/dotfiles/home/BAliases.bash:$HOME/BAliases.bash"
         "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
         "$HOME/workspace/dotfiles/home/.xinitrc:$HOME/.xinitrc"
     )

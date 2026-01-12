@@ -95,13 +95,13 @@ alias l='ls -la'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 #ALIASES
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.BAliases.bash ]; then
+    . ~/.BAliases.bash
 fi
 
 #FUNCTIONS
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
+if [ -f ~/.BFunctions.bash ]; then
+    . ~/.BFunctions.bash
 fi
 
 #PROFILE
