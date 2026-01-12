@@ -103,7 +103,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.bash_profile]; then
+if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
 fi
 # enable programmable completion features (you don't need to enable
@@ -129,7 +129,8 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 #ALIASES
-alias "."="cd .."
+alias ".."="cd .."
+alias "..."="cd ../.."
 alias "icat"="kitten icat"
 alias "ts"="trans -s ru -t en"
 alias "copy"="xclip -selection clipboard"
