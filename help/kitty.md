@@ -7,3 +7,4 @@
 - Next window (focus) Ctrl + Shift + ]
 - Previous window (focus) Ctrl + Shift + [
 - Change layout (cycle through available layouts) Ctrl + Shift + L
+- Rename tab Ctrl + Alt + Shift + T
