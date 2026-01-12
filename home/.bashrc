@@ -136,4 +136,13 @@ alias "ts"="trans -s ru -t en"
 alias "copy"="xclip -selection clipboard"
 alias "sleeps"="systemctl suspend -i"
 
+#FUNCTIONS
+qq() {
+    if [ -z "$1" ]; then
+        echo "qq commits | fzf | kitty | lazyvim | term"
+        return 1
+    fi
+    cat ~/workspace/dotfiles/help/"$1".md
+}
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
