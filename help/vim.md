@@ -14,6 +14,13 @@
 
 `gr` - find where variable is used  
 `gd` - go to variable definition
+`0` - go to line start
+`$`- go to line end
+`_`- go to first non-blank character
+`f{char}`- find char on line forward + press ; for move next
+`F{char}` - find char on line backward
+`t{char}` - find char on line forward and stop before it
+`T{char}` - find char on line backward and stop before it
 
 ## Text Editing
 
@@ -30,6 +37,7 @@
 
 `<leader>wv` - split horizontally (Ctrl+Alt+9)  
 `<leader>ww` - switch split (Alt+/)  
+`<leader>wd` - close any window
 `<Ctrl>l` - move left window  
 `<Ctrl>h` - move right window
 
@@ -49,9 +57,11 @@
 
 `<leader>cr` - mass rename (Ctrl+F6)  
 `<leader>xx` - show errors  
-`<leader>ss` - show class structure (F12)  
-`<leader>sg`, `<leader>sG`, `<leader>/` - mass search (Ctrl+Shift+F)  
-`<leader>, <leader>fb` - show last files (Ctrl+e)  
+`<leader>ss` - show file structure (F12)  
+`<leader>sg`, `<leader>sG`, `<leader>/` - mass search (Ctrl+Shift+F)
+
+## Help
+
 `<leader>sk` - show keymaps  
 `<leader>sh` - show help
 
