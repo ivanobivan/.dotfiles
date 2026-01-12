@@ -7,10 +7,6 @@ case $- in
 *) return ;;
 esac
 
-# keymaps
-setxkbmap -option caps:escape
-setxkbmap -layout us,ru -option grp:ctrl_space_toggle
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -107,6 +103,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_profile]; then
+    . ~/.bash_profile
+fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
