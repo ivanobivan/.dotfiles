@@ -29,11 +29,6 @@ return {
                 clangd = function(_, opts)
                     opts.capabilities.offsetEncoding = { "utf-16" }
                 end,
-                angularls = function()
-                    Snacks.util.lsp.on({ name = "angularls" }, function(_, client)
-                        client.server_capabilities.renameProvider = true
-                    end)
-                end,
             },
         },
     },
