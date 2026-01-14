@@ -21,6 +21,7 @@ create_symlinks() {
         "$HOME/workspace/dotfiles/home/config/kitty:$HOME/.config/kitty"
         "$HOME/workspace/dotfiles/home/config/lazygit:$HOME/.config/lazygit"
         "$HOME/workspace/dotfiles/home/config/nvim:$HOME/.config/nvim"
+        "$HOME/workspace/dotfiles/home/config/ranger:$HOME/.config/ranger"
         "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
         "$HOME/workspace/dotfiles/home/bash:$HOME/bash"
         "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
@@ -52,7 +53,7 @@ sudo apt update
 packages=(
     vim curl wget xclip tar htop cmatrix tree
     translate-shell unzip build-essential
-    ripgrep fd-find
+    ripgrep fd-find ranger
 )
 
 for elem in "${packages[@]}"; do
