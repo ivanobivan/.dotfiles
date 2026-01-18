@@ -1,0 +1,14 @@
+DONE: try switching to Arch with Hyprland - switch to i3wm
+DONE: find a decent file manager - ranger
+DONE: check the possibility of using Sway under Wayland - problems with nvidia proprietary drivers
+
+TODO: look for more themes for nvim; I want it to look similar to WebStorm
+TODO: check how to define templates for rg when doing temporary searches
+TODO: see how to add AI to my LazyVim
+TODO: prepare init.sh for switching to Arch, but keep the Ubuntu build; the scripts will need to be split
+TODO: move the ESLint + Prettier action from save to a separate shortcut
+TODO: rework the ESLint + Prettier logic so it doesn’t throw errors on every line
+TODO: systemd manual
+TODO: replace i3lock
+TODO: wifi control from console
+TODO: add animations for picom
