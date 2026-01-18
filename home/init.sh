@@ -22,6 +22,10 @@ create_symlinks() {
         "$HOME/workspace/dotfiles/home/config/lazygit:$HOME/.config/lazygit"
         "$HOME/workspace/dotfiles/home/config/nvim:$HOME/.config/nvim"
         "$HOME/workspace/dotfiles/home/config/ranger:$HOME/.config/ranger"
+        "$HOME/workspace/dotfiles/home/config/i3:$HOME/.config/i3"
+        "$HOME/workspace/dotfiles/home/config/i3status:$HOME/.config/i3status"
+        "$HOME/workspace/dotfiles/home/config/polybar:$HOME/.config/polybar"
+        "$HOME/workspace/dotfiles/home/config/rofi:$HOME/.config/rofi"
         "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
         "$HOME/workspace/dotfiles/home/bash:$HOME/bash"
         "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
@@ -54,6 +58,8 @@ packages=(
     vim curl wget xclip tar htop cmatrix tree
     translate-shell unzip build-essential
     ripgrep fd-find ranger
+    i3 polybar i3lock xss-lock rofi feh picom
+    pulsemixer brightnessctl flameshot
 )
 
 for elem in "${packages[@]}"; do
