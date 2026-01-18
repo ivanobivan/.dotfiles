@@ -3,7 +3,7 @@ general {
         interval = 5
 }
 
-order += "ipv6"
+order += "volume master"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -11,6 +11,11 @@ order += "disk /"
 order += "load"
 order += "memory"
 order += "tztime local"
+
+volume master {
+    format = "VOL %volume"
+    format_muted = "VOL muted"
+}
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -41,5 +46,5 @@ memory {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%d-%m-%Y %H:%M:%S"
 }
