@@ -43,7 +43,7 @@ default_border pixel 1
 floating_modifier $mod
 
 #gaps
-gaps inner 4
+gaps inner 0
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -55,8 +55,8 @@ bindsym Shift+Print exec --no-startup-id flameshot full
 bindsym Ctrl+Print exec --no-startup-id flameshot screen
 
 #inner gaps toggle
-bindsym $mod+g gaps inner current set 0
-bindsym $mod+Shift+g gaps inner current set 4
+bindsym $mod+g gaps inner current set 4
+bindsym $mod+Shift+g gaps inner current set 0
 
 # start a terminal
 bindsym $mod+Return exec kitty 
