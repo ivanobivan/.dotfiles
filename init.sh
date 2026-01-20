@@ -16,19 +16,33 @@ install() {
     fi
 }
 
-create_symlinks() {
+link_configs() {
+    local SRC_BASE="$HOME/workspace/dotfiles/home/config"
+    local DST_BASE="$HOME/.config"
+
+    mkdir -p "$DST_BASE"
+
+    for SRC in "$SRC_BASE"/*; do
+
+        [ -d "$SRC" ] || continue
+
+        local NAME
+        NAME="$(basename "$SRC")"
+        local DST="$DST_BASE/$NAME"
+
+        if [ -e "$DST" ] || [ -L "$DST" ]; then
+            rm -rf "$DST"
+            printf "${RED}!${NC} Replaced existing: %s\n" "$DST"
+        fi
+
+        ln -s "$SRC" "$DST"
+        printf "${BLUE}➜${NC} Symlink created: %s → %s\n" "$DST" "$SRC"
+    done
+}
+
+link_home_files() {
     local links=(
-        "$HOME/workspace/dotfiles/home/config/kitty:$HOME/.config/kitty"
-        "$HOME/workspace/dotfiles/home/config/lazygit:$HOME/.config/lazygit"
-        "$HOME/workspace/dotfiles/home/config/nvim:$HOME/.config/nvim"
-        "$HOME/workspace/dotfiles/home/config/ranger:$HOME/.config/ranger"
-        "$HOME/workspace/dotfiles/home/config/i3:$HOME/.config/i3"
-        "$HOME/workspace/dotfiles/home/config/i3status:$HOME/.config/i3status"
-        "$HOME/workspace/dotfiles/home/config/i3lock:$HOME/.config/i3lock"
-        "$HOME/workspace/dotfiles/home/config/polybar:$HOME/.config/polybar"
-        "$HOME/workspace/dotfiles/home/config/rofi:$HOME/.config/rofi"
         "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
-        "$HOME/workspace/dotfiles/home/bash:$HOME/bash"
         "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
     )
 
@@ -36,17 +50,14 @@ create_symlinks() {
         local SRC="${pair%%:*}"
         local DST="${pair##*:}"
 
-        # Remove existing file, dir, or symlink
         if [ -e "$DST" ] || [ -L "$DST" ]; then
             rm -rf "$DST"
             printf "${RED}!${NC} Replaced existing: %s\n" "$DST"
         fi
 
-        # Create symlink
-        ln -sf "$SRC" "$DST"
+        ln -s "$SRC" "$DST"
         printf "${BLUE}➜${NC} Symlink created: %s → %s\n" "$DST" "$SRC"
     done
-
 }
 
 echo "====================================="
@@ -168,7 +179,8 @@ fi
 
 sudo apt --fix-broken install
 
-create_symlinks
+link_configs
+link_home_files
 
 echo "====================================="
 echo "===     END OF INSTALLATION       ==="
