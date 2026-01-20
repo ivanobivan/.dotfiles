@@ -53,18 +53,22 @@
 
 `<leader>gg` - open LazyGit
 
+## Visual mode
+
+`<Ctrl>v` - select one line
+`g<Ctrl>a` - make num sequence
+
 ## Other
 
 `<leader>cr` - mass rename (Ctrl+F6)  
 `<leader>xx` - show errors  
 `<leader>ss` - show file structure (F12)  
 `<leader>sg`, `<leader>sG`, `<leader>/` - mass search (Ctrl+Shift+F)
+`<Ctrl>a` - increase number
+`<Ctrl>x` - decrease number
+`<Ctrl>o` - in visual go to normal mode to one action
 
 ## Help
 
 `<leader>sk` - show keymaps  
 `<leader>sh` - show help
-
-## Tips
-
-Чтобы работали переходы по методам и полям, нужно открыть файл с соответствующим расширением.
