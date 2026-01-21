@@ -12,6 +12,10 @@ esac
 setxkbmap -option caps:escape
 setxkbmap -layout us,ru -option grp:alt_shift_toggle
 
+#VARS
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -91,9 +95,6 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -la'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -103,9 +104,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 [ -f ~/.config/bash/functions.bash ] && source ~/.config/bash/functions.bash
 
 #PROFILE
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
-fi
+[ -f ~/.bash_profile ] && source . ~/.bash_profile
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -124,9 +123,5 @@ export PATH="$PATH:~/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-#VARS
-export EDITOR="nvim"
-export VISUAL="nvim"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

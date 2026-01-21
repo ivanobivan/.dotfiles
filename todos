@@ -5,6 +5,6 @@ TODO: prepare init.sh for switching to Arch, but keep the Ubuntu build; the scri
 TODO: move the ESLint + Prettier action from save to a separate shortcut
 TODO: rework the ESLint + Prettier logic so it doesn’t throw errors on every line
 TODO: systemd manual
-TODO: replace i3lock
 TODO: wifi control from console
 TODO: add animations for picom
+TODO: replace i3 with sway

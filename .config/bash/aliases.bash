@@ -1,3 +1,5 @@
+alias ls='eza --icons always'
+alias l='ls -la'
 alias ".."="cd .."
 alias "..."="cd ../.."
 alias "icat"="kitten icat"
