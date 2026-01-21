@@ -1,7 +1,3 @@
-DONE: try switching to Arch with Hyprland - switch to i3wm
-DONE: find a decent file manager - ranger
-DONE: check the possibility of using Sway under Wayland - problems with nvidia proprietary drivers
-
 TODO: look for more themes for nvim; I want it to look similar to WebStorm
 TODO: check how to define templates for rg when doing temporary searches
 TODO: see how to add AI to my LazyVim

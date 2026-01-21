@@ -16,55 +16,46 @@ install() {
     fi
 }
 
-link_configs() {
-    local SRC_BASE="$HOME/workspace/dotfiles/home/config"
-    local DST_BASE="$HOME/.config"
+create_symlinks() {
+    local SOURCE="$HOME/workspace/dotfiles"
+    local SOURCE_CONFIG="$SOURCE/.config"
+    local DEST="$HOME/.config"
 
-    mkdir -p "$DST_BASE"
-
-    for SRC in "$SRC_BASE"/*; do
-
-        [ -d "$SRC" ] || continue
-
-        local NAME
-        NAME="$(basename "$SRC")"
-        local DST="$DST_BASE/$NAME"
-
-        if [ -e "$DST" ] || [ -L "$DST" ]; then
-            rm -rf "$DST"
-            printf "${RED}!${NC} Replaced existing: %s\n" "$DST"
-        fi
-
-        ln -s "$SRC" "$DST"
-        printf "${BLUE}➜${NC} Symlink created: %s → %s\n" "$DST" "$SRC"
-    done
-}
-
-link_home_files() {
     local links=(
-        "$HOME/workspace/dotfiles/home/.bashrc:$HOME/.bashrc"
-        "$HOME/workspace/dotfiles/home/.inputrc:$HOME/.inputrc"
+        "$SOURCE_CONFIG/kitty:$DEST/kitty"
+        "$SOURCE_CONFIG/lazygit:$DEST/lazygit"
+        "$SOURCE_CONFIG/nvim:$DEST/nvim"
+        "$SOURCE_CONFIG/ranger:$DEST/ranger"
+        "$SOURCE_CONFIG/i3:$DEST/i3"
+        "$SOURCE_CONFIG/i3status:$DEST/i3status"
+        "$SOURCE_CONFIG/polybar:$DEST/polybar"
+        "$SOURCE_CONFIG/rofi:$DEST/rofi"
+        "$SOURCE_CONFIG/bash:$DEST/bash"
+        # not config files
+        "$SOURCE/.bashrc:$HOME/.bashrc"
+        "$SOURCE/.inputrc:$HOME/.inputrc"
     )
 
     for pair in "${links[@]}"; do
         local SRC="${pair%%:*}"
         local DST="${pair##*:}"
 
+        # Remove existing file, dir, or symlink
         if [ -e "$DST" ] || [ -L "$DST" ]; then
             rm -rf "$DST"
             printf "${RED}!${NC} Replaced existing: %s\n" "$DST"
         fi
 
-        ln -s "$SRC" "$DST"
+        # Create symlink
+        ln -sf "$SRC" "$DST"
         printf "${BLUE}➜${NC} Symlink created: %s → %s\n" "$DST" "$SRC"
     done
+
 }
 
 echo "====================================="
 echo "===       HELLO, LES'T START      ==="
 echo "====================================="
-
-# sudo apt update
 
 packages=(
     vim curl wget xclip tar htop cmatrix tree
@@ -179,8 +170,7 @@ fi
 
 sudo apt --fix-broken install
 
-link_configs
-link_home_files
+create_symlinks
 
 echo "====================================="
 echo "===     END OF INSTALLATION       ==="
