@@ -34,6 +34,7 @@ create_symlinks() {
         # not config files
         "$SOURCE/.bashrc:$HOME/.bashrc"
         "$SOURCE/.inputrc:$HOME/.inputrc"
+        "$SOURCE/.xinitrc:$HOME/.xinitrc"
     )
 
     for pair in "${links[@]}"; do
@@ -118,11 +119,10 @@ else
 fi
 
 # Lazygit
-if [ -f ~/.config/nvim/lua/config/lazy.lua ] ||
-    [ -d ~/.config/nvim/lua/lazyvim ]; then
-    printf "${GREEN}✔${NC} LazyVim already installed\n"
+if [ -f ~/.config/lazygit/config.yml ]; then
+    printf "${GREEN}✔${NC} Lazygit already installed\n"
 else
-    printf "${BLUE}➜${NC} Installing LazyVim\n"
+    printf "${BLUE}➜${NC} Installing Lazygit\n"
     LAZYGIT_VERSION=$(curl -s https://api.github.com/repos/jesseduffield/lazygit/releases/latest |
         grep -Po '"tag_name": *"v\K[^"]*')
     curl -Lo lazygit.tar.gz \
@@ -167,8 +167,6 @@ else
     sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
     echo 'kitty.desktop' >~/.config/xdg-terminals.list
 fi
-
-sudo apt --fix-broken install
 
 create_symlinks
 
