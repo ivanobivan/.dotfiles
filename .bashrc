@@ -7,11 +7,6 @@ case $- in
 *) return ;;
 esac
 
-# X server keymapsfor i3wm
-# TODO: check it with i3>sway replacement
-setxkbmap -option caps:escape
-setxkbmap -layout us,ru -option grp:alt_shift_toggle
-
 #VARS
 export EDITOR="nvim"
 export VISUAL="nvim"
