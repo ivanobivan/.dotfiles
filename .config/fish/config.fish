@@ -1,5 +1,6 @@
 set -gx EDITOR nvim
 set -gx VISUAL nvim
+set -U fish_greeting '🐟 ready'
 
 ### PATH
 fish_add_path /opt/nvim-linux-x86_64/bin
@@ -16,7 +17,7 @@ if test -f ~/.config/fish/aliases.fish
 end
 
 # fnm
-set FNM_PATH "/home/obivan/.local/share/fnm"
+set FNM_PATH "$NOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]
     set PATH "$FNM_PATH" $PATH
     fnm env | source
