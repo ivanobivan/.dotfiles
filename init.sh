@@ -34,7 +34,8 @@ install_packages() {
         fd-find
 
         # -------------- #
-        neofetch
+        # neofetch
+        # fastfetch
         fish
         ranger
         translate-shell
@@ -43,7 +44,8 @@ install_packages() {
         xclip
 
         # -------------- #
-        i3 polybar
+        i3
+        polybar
         i3lock
         xss-lock
         rofi
@@ -249,7 +251,7 @@ main() {
     install_kitty
 
     create_symlinks
-    ensure_fish
+    # ensure_fish
 
     echo "====================================="
     echo "===      SYSTEM SETUP DONE        ==="
