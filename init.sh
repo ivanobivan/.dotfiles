@@ -23,37 +23,18 @@ install() {
 install_packages() {
 
     local packages=(
-        vim
-        curl
-        wget
-        tar
-        tree
-        unzip
-        build-essential
-        ripgrep
-        fd-find
+        # required packages
+        vim curl wget tar tree unzip build-essential ripgrep fd-find
 
-        # -------------- #
-        # neofetch
-        # fastfetch
-        fish
-        ranger
-        translate-shell
-        htop
-        cmatrix
-        xclip
+        # usefull packages
+        # neofetch fastfetch
+        fish ranger translate-shell htop cmatrix xclip
 
-        # -------------- #
-        i3
-        polybar
-        i3lock
-        xss-lock
-        rofi
-        feh
-        picom
-        pulsemixer
-        brightnessctl
-        flameshot
+        # i3wm packages #
+        i3 polybar i3lock xss-lock rofi feh picom pulsemixer brightnessctl flameshot
+
+        # sway packages
+        sway swaybg swayidle swaylock waybar wl-clipboard grim slurp
     )
 
     for pkg in "${packages[@]}"; do
@@ -77,6 +58,8 @@ create_symlinks() {
         "$SOURCE_CONFIG/rofi:$DEST/rofi"
         "$SOURCE_CONFIG/bash:$DEST/bash"
         "$SOURCE_CONFIG/fish:$DEST/fish"
+        "$SOURCE_CONFIG/sway:$DEST/sway"
+        "$SOURCE_CONFIG/waybar:$DEST/waybar"
         # not config files
         "$SOURCE/.bashrc:$HOME/.bashrc"
         "$SOURCE/.inputrc:$HOME/.inputrc"

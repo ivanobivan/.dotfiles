@@ -1,0 +1,26 @@
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "default": ""
+    }
+  },
+
+  "clock": {
+    "format": "  {:%d-%m %H:%M}"
+  }
+}
