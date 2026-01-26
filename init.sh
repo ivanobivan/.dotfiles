@@ -28,13 +28,11 @@ install_packages() {
 
         # usefull packages
         # neofetch fastfetch
-        fish ranger translate-shell htop cmatrix xclip
+        # fish
+        ranger translate-shell htop cmatrix xclip
 
-        # i3wm packages #
+        # i3wm packages
         i3 polybar i3lock xss-lock rofi feh picom pulsemixer brightnessctl flameshot
-
-        # sway packages
-        sway swaybg swayidle swaylock waybar wl-clipboard grim slurp
     )
 
     for pkg in "${packages[@]}"; do
@@ -53,13 +51,12 @@ create_symlinks() {
         "$SOURCE_CONFIG/nvim:$DEST/nvim"
         "$SOURCE_CONFIG/ranger:$DEST/ranger"
         "$SOURCE_CONFIG/i3:$DEST/i3"
-        "$SOURCE_CONFIG/i3status:$DEST/i3status"
+        # "$SOURCE_CONFIG/i3status:$DEST/i3status"
         "$SOURCE_CONFIG/polybar:$DEST/polybar"
         "$SOURCE_CONFIG/rofi:$DEST/rofi"
         "$SOURCE_CONFIG/bash:$DEST/bash"
-        "$SOURCE_CONFIG/fish:$DEST/fish"
-        "$SOURCE_CONFIG/sway:$DEST/sway"
-        "$SOURCE_CONFIG/waybar:$DEST/waybar"
+        # "$SOURCE_CONFIG/fish:$DEST/fish"
+        # "$SOURCE_CONFIG/waybar:$DEST/waybar"
         # not config files
         "$SOURCE/.bashrc:$HOME/.bashrc"
         "$SOURCE/.inputrc:$HOME/.inputrc"
@@ -223,7 +220,7 @@ main() {
     echo "====================================="
 
     install_packages
-    install_chrome
+    # install_chrome
     # install_telegram
     install_neovim
     install_fonts
@@ -234,7 +231,7 @@ main() {
     install_kitty
 
     create_symlinks
-    ensure_fish
+    # ensure_fish
 
     echo "====================================="
     echo "===      SYSTEM SETUP DONE        ==="
