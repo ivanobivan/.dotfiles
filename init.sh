@@ -224,17 +224,17 @@ main() {
 
     install_packages
     install_chrome
-    install_telegram
+    # install_telegram
     install_neovim
     install_fonts
     install_lazygit
-    # install_nvm
-    install_fnm
+    install_nvm
+    # install_fnm
     install_fzf
     install_kitty
 
     create_symlinks
-    # ensure_fish
+    ensure_fish
 
     echo "====================================="
     echo "===      SYSTEM SETUP DONE        ==="
