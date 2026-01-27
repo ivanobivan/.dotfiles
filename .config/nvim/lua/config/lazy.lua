@@ -18,7 +18,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
-        { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+        {
+            "LazyVim/LazyVim",
+            opts = {
+                colorscheme = "kanagawa",
+            },
+            import = "lazyvim.plugins",
+        },
         --extras
         { import = "lazyvim.plugins.extras.lang.typescript" },
         { import = "lazyvim.plugins.extras.formatting.prettier" },

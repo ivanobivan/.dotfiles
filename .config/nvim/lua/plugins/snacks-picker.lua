@@ -8,8 +8,8 @@ return {
                 hidden = false,
                 sources = {
                     explorer = {
-                        hidden = false,
-                        ignored = false,
+                        hidden = true,
+                        ignored = true,
                     },
                 },
             },

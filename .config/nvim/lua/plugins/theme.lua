@@ -1,8 +1,11 @@
 return {
     {
-        "folke/tokyonight.nvim",
+        "rebelot/kanagawa.nvim",
         opts = {
-            style = "night",
+            theme = "wave",
+            background = {
+                dark = "wave",
+            },
         },
     },
 }
