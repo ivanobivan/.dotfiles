@@ -1,3 +1,4 @@
-/home/config/nvim/lua/prop
+/.config/nvim/lua/prop
 /help/prop
 /.config/fish/fish_variables
+/.config/nvim/lazy-lock.json
