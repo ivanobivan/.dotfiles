@@ -12,3 +12,10 @@ TODO: systemd manual
 TODO: wifi control from console
 TODO: replace i3 with sway
 
+awesome:
+TODO: finish customise awesomewm
+
+
+ideas:
+TODO: add music console player
+
