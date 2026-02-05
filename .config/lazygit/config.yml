@@ -1,2 +1,18 @@
 gui:
   language: "en"
+  theme:
+    activeBorderColor:
+      - "#C0A79A"
+      - bold
+    inactiveBorderColor:
+      - "#54546D"
+    optionsTextColor:
+      - "#957FB8"
+    selectedLineBgColor:
+      - "#2D4F67"
+    cherryPickedCommitBgColor:
+      - "#49443C"
+    cherryPickedCommitFgColor:
+      - "#C0A79A"
+    unstagedChangesColor:
+      - "#E82424"
