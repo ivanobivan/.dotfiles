@@ -1,5 +1,6 @@
-/.config/nvim/lua/prop
 /.config/nvim/lazy-lock.json
-/prop
 /.config/fish/fish_variables
+
+/.config/nvim/lua/prop
+/prop
 /.bash_profile
