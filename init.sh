@@ -26,10 +26,10 @@ install_packages() {
         # required packages
         vim curl wget tar tree unzip build-essential ripgrep fd-find
 
-        # usefull packages
+        # usefull/pretty packages
         # neofetch fastfetch
         # fish
-        ranger translate-shell htop cmatrix xclip
+        ranger translate-shell htop cmatrix xclip pass
 
         # i3wm packages
         i3 polybar i3lock xss-lock rofi feh picom pulsemixer brightnessctl flameshot
