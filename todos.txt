@@ -1,9 +1,6 @@
 nvim:
 TODO: lualine show utf-8
 TODO: see how to add AI to my LazyVim
-TODO: move the ESLint + Prettier action from save to a separate shortcut
-TODO: rework the ESLint + Prettier logic so it doesn’t throw errors on every line
-TODO: nice notifications 
 TODO: move on my own config setup
 
 linux:
@@ -14,8 +11,3 @@ TODO: replace i3 with sway
 
 awesome:
 TODO: finish customise awesomewm
-
-
-ideas:
-TODO: add music console player
-
