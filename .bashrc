@@ -7,6 +7,11 @@ case $- in
 *) return ;;
 esac
 
+#PATHes
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export NVM_DIR="$HOME/.nvm"
+
 #VARS
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -86,21 +91,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-[ -f ~/.config/bash/aliases.bash ] && source ~/.config/bash/aliases.bash
-[ -f ~/.config/bash/functions.bash ] && source ~/.config/bash/functions.bash
-
-#PROFILE
-[ -f ~/.bash_profile ] && source ~/.bash_profile
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -112,11 +102,16 @@ if ! shopt -oq posix; then
     fi
 fi
 
-#PATHes
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-export PATH="$PATH:~/.local/bin"
-export NVM_DIR="$HOME/.nvm"
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+[ -f ~/.config/bash/aliases.bash ] && source ~/.config/bash/aliases.bash
+[ -f ~/.config/bash/functions.bash ] && source ~/.config/bash/functions.bash
+[ -f ~/.bash_profile ] && source ~/.bash_profile
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
