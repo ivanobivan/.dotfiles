@@ -8,6 +8,7 @@ TODO: prepare init.sh for switching to Arch, but keep the Ubuntu build; the scri
 TODO: systemd manual
 TODO: wifi control from console
 TODO: replace i3 with sway
+TODO: custom arch build
 
 awesome:
 TODO: finish customise awesomewm

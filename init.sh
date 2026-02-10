@@ -24,12 +24,28 @@ install_packages() {
 
     local packages=(
         # required packages
-        vim curl wget tar tree unzip build-essential ripgrep fd-find
+        vim
+        curl
+        wget
+        tar
+        tree
+        unzip
+        build-essential
+        ripgrep
+        fd-find
+        network-manager
 
         # usefull/pretty packages
-        # neofetch fastfetch
+        # neofetch
+        # fastfetch
         # fish
-        ranger translate-shell htop cmatrix xclip pass
+        ranger
+        translate-shell
+        htop
+        cmatrix
+        xclip
+        pass
+        jq
 
         # i3wm packages
         i3 polybar i3lock xss-lock rofi feh picom pulsemixer brightnessctl flameshot
